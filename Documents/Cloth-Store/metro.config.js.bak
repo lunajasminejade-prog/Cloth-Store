@@ -1,0 +1,9 @@
+const { getDefaultConfig } = require('expo/metro-config');
+
+const config = getDefaultConfig(__dirname);
+
+// expo-sqlite web support uses wasm assets; ensure Metro can resolve them.
+config.resolver.assetExts.push('wasm');
+config.resolver.sourceExts.push('cjs');
+
+module.exports = config;
